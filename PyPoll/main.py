@@ -24,8 +24,11 @@ import csv
 #print header for the analysis result
 print("Election Results")
 print("-------------------------------")
-#defining the path of resources file
-csvfpath = "election_data.csv"
+
+#defining the path of resources file (im not 100 percent sure for this but when im on the virtual environtment, i can read the file with below path but i will need to specify a full path for the assignment to run after i move it to GitHub)
+# csvfpath = os.path.join("..", "Resources", "election_data.csv")
+csvfpath = os.path.join("c:/Users/timn/Documents/GitHub/python-challenge/PyPoll/Resources/election_data.csv")
+
 
 #Declaring an empty list to hold and separate values from the csv file
 votes = []
@@ -87,8 +90,7 @@ print("-------------------------------")
 print(f"Winner: {max_num(can1,can2,can3)}")
 print("-------------------------------")
 
-#exporting the election result to txt file
-
+#creating new list to export / write the election result to txt file
 lines = ['Election Results',
 '-------------------------',
 'Total Votes: 369711',
@@ -100,7 +102,10 @@ lines = ['Election Results',
 'Winner: Diana DeGette',
 '-------------------------']
 
-with open('readmepypoll.txt', 'w') as f:
+with open('c:/Users/timn/Documents/GitHub/python-challenge/PyPoll/Analysis/readme.txt', 'w') as f:
+#defining the path of written file (im not 100 percent sure for this but when im on the virtual environtment, i can write the file with below path but i will need to specify a full path for the assignment to run after i move it to GitHub)
+
+#Looping trough the list to export / write the result to txt file
     for line in lines:
         f.write(line)
         f.write('\n')
