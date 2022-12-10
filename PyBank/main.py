@@ -16,18 +16,19 @@
 # Greatest Increase in Profits: Aug-16 ($1862002)
 # Greatest Decrease in Profits: Feb-14 ($-1825558)
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#importing Module os and csv
 
+#importing Module os and csv and path for relative path 
 import os
 import csv
-print(os.getcwd)
+from pathlib import Path
+
 #print header for the analysis result
 print("Financial Analysis")
 print("-------------------------------------------------------------------")
 
 #defining the path of resources file (im not 100 percent sure for this but when im on the virtual environtment, i can read the file with below path but i will need to specify a full path for the assignment to run when i move it to GitHub
 # csvfpath = os.path.join("..", "Resources", "budget_data.csv")
-csvfpath = os.path.join("c:/Users/timn/Documents/GitHub/python-challenge/PyBank/Resources/budget_data.csv")
+csvfpath = os.path.join("Resources/budget_data.csv")
 
 #Declaring an empty list to hold and separate values from the dictionary from the csv file
 profitloss = []
@@ -86,9 +87,10 @@ lines = ['Financial Analysis',
 'Greatest Increase in Profits: Aug-16 ($1862002)',
 'Greatest Decrease in Profits: Feb-14 ($-1825558)']
 
-with open('c:/Users/timn/Documents/GitHub/python-challenge/PyBank/Analysis/readme.txt', 'w') as f:
-#defining the path of resources file (im not 100 percent sure for this but when im on the virtual environtment, i can read the file with below path but i will need to specify a full path for the assignment to run when i move it to GitHub)
 
+#defining the path of resources file (im not 100 percent sure for this but when im on the virtual environtment, i can read the file with below path but i will need to specify a full path for the assignment to run when i move it to GitHub)
+path = Path(__file__).parent / "Analysis/readme.txt"
+with open(path,'w') as f:
 #Looping trough the list to export / write the result to txt file
     for line in lines:
         f.write(line)
